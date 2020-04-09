@@ -1,23 +1,29 @@
 package usecases.interactors;
 
-//@Service
-//public class DefaultInteractor implements IExecuteParameter<CoreResponse<Entidade>, CoreRequest<Entidade>> {
-//
-//    private final EntidadeRepository entidadeRepository;
-//
-//    @Autowired
-//    public DefaultInteractor(EntidadeRepository entidadeRepository){
-//
-//        this.entidadeRepository = entidadeRepository;
-//
-//    }
-//
-//    @Override
-//    public CoreResponse<Entidade> execute(CoreRequest<Entidade> request) {
-//
-//			  entidadeRepository.save(request.getDados());
-//
-//        return new CoreResponse<>(request.getDados());
-//    }
-//
-//}
+import core.usecases.CoreRequest;
+import core.usecases.CoreResponse;
+import core.usecases.IExecuteParameter;
+import entities.DefaultEntidade;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import usecases.gateways.repositories.DefaultRepository;
+
+@Service
+public class DefaultInteractor implements IExecuteParameter<CoreResponse<DefaultEntidade>, CoreRequest<DefaultEntidade>> {
+
+    private final DefaultRepository entidadeRepository;
+
+    @Autowired
+    public DefaultInteractor(DefaultRepository entidadeRepository){
+
+        this.entidadeRepository = entidadeRepository;
+    }
+
+    @Override
+    public CoreResponse<DefaultEntidade> execute(CoreRequest<DefaultEntidade> request) {
+
+			  entidadeRepository.save(request.getDados());
+
+        return new CoreResponse<>(request.getDados());
+    }
+}

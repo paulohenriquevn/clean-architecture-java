@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.springframework</groupId>
-    <artifactId>grd.alertas</artifactId>
+    <artifactId>default.clean</artifactId>
     <version>1.0.0</version>
     <dependencies>
         <dependency>

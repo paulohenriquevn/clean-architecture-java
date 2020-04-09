@@ -14,8 +14,6 @@ public class OvalConfig {
 
         AnnotationsConfigurer annotationsConfigurer = new AnnotationsConfigurer();
         annotationsConfigurer.addCheckInitializationListener(SpringCheckInitializationListener.INSTANCE);
-
         return new Validator(annotationsConfigurer);
-
     }
 }

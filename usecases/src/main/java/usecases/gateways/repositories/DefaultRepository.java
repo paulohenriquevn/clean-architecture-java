@@ -1,7 +1,9 @@
 package usecases.gateways.repositories;
 
-//public interface DefaultRepository extends BaseCrudRepository<Entidade, Long> {
-//
-//    Iterable<Entidade> findAll(Entidade entidade);
-//
-//}
+import core.gateways.repositories.BaseCrudRepository;
+import entities.DefaultEntidade;
+
+public interface DefaultRepository extends BaseCrudRepository<DefaultEntidade, Long> {
+
+    Iterable<DefaultEntidade> findAll();
+}

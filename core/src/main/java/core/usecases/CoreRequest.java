@@ -8,4 +8,10 @@ import lombok.Setter;
 public class CoreRequest<TEntity> {
 
     private TEntity dados;
+
+    public CoreRequest() {}
+
+    public CoreRequest(TEntity dados){
+    	this.dados = dados;
+		}
 }

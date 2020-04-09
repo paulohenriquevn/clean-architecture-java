@@ -1,9 +1,12 @@
 package gateways.repository.jpa;
 
-//@Repository
-//public interface DefaultRepository extends CrudRepository<Entidade, Long>, EntidadeRepository {
-//
-//    Iterable<Entidade> findAll(Long processoId);
-//
-//}
+import entities.DefaultEntidade;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface DefaultRepository extends CrudRepository<DefaultEntidade, Long>, usecases.gateways.repositories.DefaultRepository {
+
+    Iterable<DefaultEntidade> findAll(Long processoId);
+}
 

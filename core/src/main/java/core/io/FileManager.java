@@ -25,7 +25,6 @@ public class FileManager {
 		}
 
 		return instance;
-
 	}
 
 	private FileManager() {
@@ -43,29 +42,22 @@ public class FileManager {
 			this.createFolderIfNotExists(tempFileFolder);
 
 		} catch (Exception exception) {
-
-
-
 		}
 
 		if(!tempFileFolder.isDirectory()) {
 
 			throw new IllegalStateException("Erro ao inicializar o FileManager. A pasta temporária não é um diretório: " + TEMP_FILES_FOLDER_PATH);
-
 		}
 
 		if(!tempFileFolder.canWrite()) {
 
 			throw new IllegalStateException("Erro ao inicializar o FileManager. Sem permissão de escrita para a pasta temporária: " + TEMP_FILES_FOLDER_PATH);
-
 		}
-
 	}
 
 	public File getTempFilesFolder() {
 
 		return new File(TEMP_FILES_FOLDER_PATH);
-
 	}
 
 	public static boolean validaArquivo(File file){
@@ -79,11 +71,8 @@ public class FileManager {
 		if(file.length() < TAMANHO_MAX_ARQUIVO && extensoes.contains(FilenameUtils.getExtension(file.getPath()))){
 
 			return true;
-
 		}
-
 		return false;
-
 	}
 
 	public String getExtension(String fileName){
@@ -95,19 +84,16 @@ public class FileManager {
 	public String generateFileKey(String fileName, String folderName) {
 
 		return folderName + FILE_KEY_SEPARATOR + fileName;
-
 	}
 
 	public String generateFileName(String extension) {
 
 		return UUID.randomUUID().toString() + ((extension != null) ? "." + extension : "");
-
 	}
 
 	public String removerExtension(String fileName) {
 
 		return fileName.substring(0, fileName.lastIndexOf("."));
-
 	}
 
 	public String getFolderName() throws IOException {
@@ -118,7 +104,6 @@ public class FileManager {
 		this.createFolderIfNotExists(folder);
 
 		return folderName;
-
 	}
 
 	public String createFile(byte [] fileBytes, String extension) throws IOException {
@@ -130,7 +115,6 @@ public class FileManager {
 		writeFile(file, fileBytes);
 
 		return generateFileKey(fileName, folderName);
-
 	}
 
 	public String createFile(String pathFileGenerated, byte [] fileBytes, String extension) throws IOException {
@@ -140,7 +124,6 @@ public class FileManager {
 		writeFile(file, fileBytes);
 
 		return removerExtension(fileName);
-
 	}
 
 	private void writeFile(File file, byte[] fileBytes) throws IOException {
@@ -156,9 +139,6 @@ public class FileManager {
 		if(!folder.exists() && !folder.mkdir() && !folder.getAbsoluteFile().mkdirs()) {
 
 			throw new IOException("Não foi possível criar a pasta temporária.");
-
 		}
-
 	}
-
 }
